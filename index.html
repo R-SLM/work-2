@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>work2</title>
+	<!-- 这个是嵌入式（之前一直以为是内联。。。，嵌入式和外部样式还有一个优先级在html文档的前面的会被覆盖掉） -->
+	<!-- 关于document.styleSheets[0].insertRule可以获取却无法插入href="css/main.css（bug解决不了），但却可以插入<style type="text/css"></style> -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style type="text/css"></style>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<div class="logo">
+				<img src="images/logo.png">
+			</div>
+			<div class="navbar">
+				<ul>
+					<li><a href="javascript:;">某某商城</a></li>
+					<li><a href="javascript:;">某某手机</a></li>
+					<li><a href="javascript:;">某某电脑</a></li>
+					<li><a href="javascript:;">某某声学</a></li>
+					<li><a href="javascript:;">智能</a></li>
+					<li><a href="javascript:;">配件</a></li>
+					<li><a href="javascript:;">服务</a></li>
+					<li><a href="javascript:;">专卖店</a></li>
+					<li><a href="javascript:;">系统</a></li>
+					<li><a href="javascript:;">社区</a></li>
+
+					<!-- 在ie中<a href="">会跳转到根目录的bug。。。类似 <a href="/">-->
+
+					<li class="user"><a href="javascript:;"><img src="images/user.png"></a></li>
+					<div class="userMessage2"></div>
+				</ul>
+			</div>
+		</div>
+		<div class="userMessage">
+			<div class="user-top">
+				<img src="images/图层 5.png">
+				<div class="user-top-about">
+					<a href="javascript:;">用户名</a>
+					<div class="user-about-message">
+						<a href="javascript:;">积分</a>
+						<b>500</b>
+						<a href="javascript:;">经验</a>
+						<b>500</b>
+					</div>
+				</div>
+			</div>
+			<div class="user-middle">
+				<span>Web前端工程师</span>
+				<p>IE8 或更早的版本不支持</p>
+			</div>
+			<div class="user-bottom">
+				<a href="javascript:;"><i class="fa fa-cog fa-fw"></i>&nbsp;安全退出</a>
+			</div>
+		</div>
+
+		<section id="banner">
+			<div id="list">
+				<div class="list-item">
+					<img alt="1" src='images/banner.png'>
+					<div class="img-message">
+						<div class="message-top">
+							<p>extreme enjory 0</p>
+							<h1>不<span>—</span>样的音乐会</h1>
+						</div>
+						<hr>
+						<div class="message-buttom">
+							<p>HD50&nbsp;头戴式耳机</p>
+							<div class="price">
+								<span>￥:</span>
+								<img src="images/price.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<img alt="1" src='images/banner.png'>
+					<div class="img-message">
+						<div class="message-top">
+							<p>extreme enjory 1</p>
+							<h1>不<span>—</span>样的音乐会</h1>
+						</div>
+						<hr>
+						<div class="message-buttom">
+							<p>HD50&nbsp;头戴式耳机</p>
+							<div class="price">
+								<span>￥:</span>
+								<img src="images/price.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<img alt="2" src='images/banner.png'>
+					<div class="img-message">
+						<div class="message-top">
+							<p>extreme enjory 2</p>
+							<h1>不<span>—</span>样的音乐会</h1>
+						</div>
+						<hr>
+						<div class="message-buttom">
+							<p>HD50&nbsp;头戴式耳机</p>
+							<div class="price">
+								<span>￥:</span>
+								<img src="images/price.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<img alt="3" src='images/banner.png'>
+					<div class="img-message">
+						<div class="message-top">
+							<p>extreme enjory 3</p>
+							<h1>不<span>—</span>样的音乐会</h1>
+						</div>
+						<hr>
+						<div class="message-buttom">
+							<p>HD50&nbsp;头戴式耳机</p>
+							<div class="price">
+								<span>￥:</span>
+								<img src="images/price.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<img alt="3" src='images/banner.png'>
+					<div class="img-message">
+						<div class="message-top">
+							<p>extreme enjory 4</p>
+							<h1>不<span>—</span>样的音乐会</h1>
+						</div>
+						<hr>
+						<div class="message-buttom">
+							<p>HD50&nbsp;头戴式耳机</p>
+							<div class="price">
+								<span>￥:</span>
+								<img src="images/price.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="leftArrow">
+				<div class="arrow"></div>
+			</div>
+			<div id="rightArrow">
+				<div class="arrow"></div>
+			</div>
+			<div class="buttons">
+				<span class="on" index="1"></span>
+				<span index="2"></span>
+				<span index="3"></span>
+			</div>
+		</section>
+		<section id="feature">
+			<ul>
+				<li>
+					<img src="images/24974_06.png">
+					<div class="img-gray">
+						<img src="images/feature-first-gray.png">
+					</div>
+				</li>
+				<li>
+					<img src="images/24974_10.png">
+					<div class="img-gray">
+						<img src="images/feature-second-gray.png">
+					</div>
+				</li>
+				<li>
+					<img src="images/24974_08.png">
+					<div class="img-gray">
+						<img src="images/feature-third-gray.png">
+					</div>
+				</li>
+			</ul>	
+		</section>
+		<section id="about">
+			<div class="dynamic">
+				<h1>动态</h1><span>更多</span>
+				<ul>
+					<li>
+						<figure>
+							<div class="dynamic-first"></div>
+							<!-- <img src="images/dynamic-first.png"> -->
+							<figcaption>
+								<p>HD50 头戴式耳机</p>
+								<p>随时随地的音乐会</p>
+								<p>2018.1.1</p>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<div class="dynamic-second"></div>
+							<!-- <img src="images/dynamic-second.png"> -->
+							<figcaption>
+								<p>HD50 头戴式耳机</p>
+								<p>随时随地的音乐会</p>
+								<p>2018.1.1</p>
+							</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<div class="dynamic-third"></div>
+							<!-- <img src="images/dynamic-third.png"> -->
+							<figcaption>
+								<p>HD50 头戴式耳机</p>
+								<p>随时随地的音乐会</p>
+								<p>2018.1.1</p>
+							</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</div>
+			<div id="activity">
+				<h1>活动</h1><span>更多</span>
+				<ul>
+					<li>
+						<figure>
+							<a href="javascript:;"><img src="images/activity-first.png" title="点击图片展示详情"></a>
+							<figcaption>HD50 头戴式耳机</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<a href="javascript:;"><img src="images/activity-secod.png" title="点击图片展示详情"></a>
+							<figcaption>HD50 头戴式耳机</figcaption>
+						</figure>
+					</li>
+					<li>
+						<figure>
+							<a href="javascript:;"><img src="images/activity-third.png" title="点击图片展示详情"></a>
+							<figcaption>HD50 头戴式耳机</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section id="bottom">
+			<!-- <div class="test"></div> -->
+			<div class="advantage">
+				<ul>
+					<li>
+						<img src="images/593606be2cc0c_0026_图层-11.png">
+						<p><span><b></b>天&nbsp;</span>无理由退货</p>
+					</li>
+					<li>
+						<img src="images/593606be2cc0c_0027_图层-12.png">
+						<p><span><b></b>天&nbsp;</span>退货保障</p>
+					</li>
+					<li>
+						<img src="images/593606be2cc0c_0028_图层-13.png">
+						<p><span><b>1</b>年&nbsp;</span>免费维修</p>
+					</li>
+					<li>
+						<img src="images/593606be2cc0c_0029_图层-14.png">
+						<p><span>百城&nbsp;</span>速达</p>
+					</li>
+					<li>
+						<img src="images/593606be2cc0c_0030_图层-15.png">
+						<p><span>全场&nbsp;</span>包邮</p>
+					</li>
+					<li>
+						<img src="images/593606be2cc0c_0031_图层-16.png">
+						<p><span><b></b>多家&nbsp;</span>专卖店</p>
+					</li>
+				</ul>
+			</div>
+			<footer>
+				<div class="footer-nav">
+					<ul>
+						<li>
+							<span>推荐机型</span>
+							<p><a href="javascript:;">R9s</a></p>
+							<p><a href="javascript:;">R9s Plus</a></p>
+							<p><a href="javascript:;">A59s</a></p>
+							<p><a href="javascript:;">A57</a></p>
+						</li>
+						<li>
+							<span>在线购买</span>
+							<p><a href="javascript:;">官方商城</a></p>
+							<p><a href="javascript:;">购物指南</a></p>
+							<p><a href="javascript:;">官方授权网店</a></p>
+						</li>
+						<li>
+							<span>服务</span>
+							<p><a href="javascript:;">服务网点查询</a></p>
+							<p><a href="javascript:;">零配件价格查询</a></p>
+							<p><a href="javascript:;">云服务</a></p>
+							<p><a href="javascript:;">建议反馈</a></p></a>
+						</li>
+						<li>
+							<span>关于我们</span>
+							<p><a href="javascript:;">关于OPPO</a></p>
+							<p><a href="javascript:;">加入我们</a></p>
+							<p><a href="javascript:;">采购相关</a></p>
+							<p><a href="javascript:;">发布会回顾</a></p>
+						</li>
+						<li>
+							<p>24小时全国服务热线</p>
+							<h2>400-400-4000</h2>
+							<div class="service">
+								<a href="javascript:;">24小时在线客服</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-message">
+					<p>&copy; 2005 - 2017 东莞市某某通信科技有限公司 版权所有 粤ICP备08130115号-1 联系方式：400-400-4000</p>
+					<div class="contact">
+						<span>关注我们:&nbsp;</span>
+						<a href="javascript:;"><img src="images/593606be2cc0c_0001_微博.png"></a>
+						<a href="javascript:;"><img src="images/593606be2cc0c_0002_微信.png"></a>
+					</div>
+				</div>
+			</footer>
+		</section>
+	</div>
+	<script type="text/javascript" src="js/slide.js"></script>
+</body>
+</html>

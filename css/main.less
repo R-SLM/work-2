@@ -1,0 +1,892 @@
+@import "var.less";
+/*样式重置*/
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd { margin: 0; padding: 0;font-family: 微软雅黑; }
+ul, ol { list-style: none; }
+img { border: none; vertical-align: top; }
+a { text-decoration: none;color:@mainColor; }
+
+body{
+	position: relative;
+}
+
+/* 字体用于解决用户电脑没有该字体 */
+@font-face {
+    font-family: 'fzlantingheis-ul-gbregular';
+    src: url('../font/_-webfont.woff2') format('woff2'),
+         url('../font/_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*选择性的*/
+em, i { font-style: normal; }
+/*公用*/
+.clearfix{ content: ""; display: block; clear: both; }
+/*.clearfix { zoom: 1; }*/
+.fl { float: left; }
+.fr { float: right; }
+
+/* activity 动态创建图片详情展示 */
+#mask{
+	position: absolute;
+	background: rgba(0, 0, 0, 0.1);
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	z-index: 8;
+}
+
+#wrap{
+	width:45%;
+	background: @white;
+	position: fixed;
+	z-index: 9;
+	transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	padding:0 10px;
+	opacity: 0.5;
+	&:before{
+		.clearfix;
+	}
+	a{
+		display: block;
+		text-align:center;
+		cursor:pointer;
+		font-size: 20px;
+		font-weight: bold;
+		// width:10px;
+		// height:10px;
+		.fr;
+		// &:after{
+		// 	content: "\2716";
+		// 	// .fr;
+		// 	// padding:3px;
+		// 	cursor:pointer;
+		// }
+	}
+	img{
+		display: block;
+		// padding:5px;
+		width:100%;
+	}
+	p{
+		font-size: 15px;
+		padding: 5px 0;
+	}
+}
+
+
+/* 整个页面的容器 */
+#container{
+	width:100%;
+	min-width: 1150px;
+	z-index: 1;
+    position: relative;
+}
+/* 头部 */
+#header{
+	padding:0 8%;
+	z-index: 3;
+	position: relative;
+	background: @white;
+	&:after{
+		.clearfix;
+	}
+}
+/* 头部logo区域 */
+.logo{
+	.fl;
+	img{
+		height:80px;
+	}
+}
+/* 头部导航栏区域 */
+.navbar{
+	.fr;
+	text-align: center;
+	.user{
+		// transition: all 5s;
+		// -ms-transition: all 5s;
+		a{
+			position: relative;
+			&::after {
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				// border-top: 5px solid transparent;
+				// border-bottom: 5px solid transparent;
+				border-bottom: 5px solid @mainColor;
+				position: absolute;
+				left: 180%;
+				top: 50%;
+				margin-top: -1.5px;
+				content: "";
+				transform: rotate(0deg);
+				transition: all 0.35s;
+				-ms-transition: all 0.35s;
+			}
+			// &:before{
+			// 	width:50px;
+			// 	height:50px;
+			// 	background: pink;
+			// 	display: block;
+			// 	left: 0;
+			// 	top: 200%;
+			// 	content: "";
+			// 	position:absolute;
+			// 	z-index: 2;
+			// }
+			img{
+				vertical-align: middle;
+			}
+		}
+	}
+	//用于改变元素内部的伪类的样式（dom无法获取伪类元素）
+	// .user-test{
+	// 	a{
+	// 		position: relative;
+	// 		&:after {
+	// 			border-left: 5px solid transparent;
+	// 			border-right: 5px solid transparent;
+	// 			// border-top: 5px solid transparent;
+	// 			// border-bottom: 5px solid transparent;
+	// 			border-top: 5px solid @mainColor;
+	// 			position: absolute;
+	// 			left: 180%;
+	// 			top: 50%;
+	// 			margin-top: -1.5px;
+	// 			content: "";
+	// 			transform: rotate(0deg);
+	// 			transition: all 0.35s;
+	// 			-ms-transition: all 0.35s;
+	// 		}
+	// 		img{
+	// 			vertical-align: middle;
+	// 		}
+	// 	}
+	// }
+
+// 	.userMessage2{
+// 		width:50px;
+// 		height:50px;
+// 		background:pink;
+// 		position:absolute;
+// 		left:50%;
+// 		// top:3%;
+// 		margin-top:-5px;
+// 		z-index: 2;
+// 		transition:margin-top 0.5s;
+// 		-ms-transition:margin-top 0.5s;
+// }
+	ul li{
+		.fl;
+		width:70px;
+		height: 80px;
+		line-height: 80px;
+		a{
+			&:hover{
+				color:@phoneColor;
+			}
+			transition: all 0.15s;
+			-ms-transition: all 0.15s;
+			font-size: 14px;
+			// display: block;这个时候a和li大小就一样。
+		}
+	}
+	// ul li:nth-of-type(11){
+
+	// }
+
+}
+
+// .user:hover.user a:after{
+// 	// hover控制伪类的样式方法祖元素（hover的元素）链接子类伪元素（hover的控制元素）时
+// 	// 不像平时那样有空格隔开（原理未知） 
+// 	// margin-top:-50px;
+// 	transform: rotate(180deg);
+// }
+
+.userMessage{
+	width:250px;
+	height:200px;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 5px 5px 0px rgba(7,17,27,.2);
+	background:@white;
+	position:absolute;
+	right:2%;
+	// top:3%;
+	margin-top:-300px;
+	// display: none;
+	z-index: 2;
+	transition:margin-top 0.5s;
+	-ms-transition:margin-top 0.5s;
+	padding:25px;
+	// &:hover{
+	// 	margin-top:0px;
+	// }
+}
+
+.user-top{
+	padding-top:15px;
+	img{
+		width:20%;
+		vertical-align: middle;
+		border-radius: 50%;	
+	}
+	.user-top-about{
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+		font-size: 12px;
+		a{
+		font-size: 16px;
+		color:@black;
+		font-weight: 700;
+		}
+		.user-about-message{
+			a {
+				color: @mainColor;
+				font-weight: normal;
+				&:nth-of-type(2){
+					margin-left:10px;
+				}
+			}
+			b {
+				margin-left: 2px;
+				color: @mainColor;
+			}
+		}
+	}
+}
+.user-middle{
+	color:@mainColor;
+	margin:25px auto;
+	font-size: 14px;
+	span{
+		margin-bottom:15px;
+		font-weight: 700;
+		display: inline-block;
+	}
+	p{
+		margin-bottom:15px;
+	}
+}
+.user-bottom{
+	border-top:1px solid @lineColor;
+	a{
+		float:right;
+		display: block;
+		margin-top:15px;
+		color:rgba(0,180,60,.6);
+	}
+}
+
+
+/* 测试线性渐变(位于bannner的文字部分) */
+
+/* 线性渐变可以控制渐变开始的位置，用百分比表示（如下的hr），还可以分段进行颜色块渐变（分成一段一段颜色区域块，没有了渐变，也已百分比表示（列子如下：（取自web modle 的 css3线性渐变表单）））
+
+		background-image: linear-gradient(to right, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+ */
+/* hr{
+	width: 250px;
+    height: 2px;
+    border: none;
+    background-image: linear-gradient(to right,@mainColor 80%,transparent);
+} */
+
+/* banner轮播图区域 */
+
+/* banner图片区域 */
+
+//html代码符号的箭头
+// .arrow(left,@position){
+// 	left:@position;
+// }
+// .arrow(right,@position){
+// 	right:@position;
+// }
+// .arrow(@_,@position){
+// 	width:40px;
+// 	height: 40px;
+// 	position: absolute;
+// 	top:50%;
+// 	margin-top: -20px;
+// 	font-size: 30px;
+// 	line-height: 35px;
+// 	text-align: center;
+// 	background:rgba(0,0,0,.3);
+// 	color:@white;
+// 	cursor: pointer;
+// }
+
+//css3代码符号的箭头
+.arrow(left,@width:5px,@height:5px,@top:5px,@left:5px){
+	transform: rotate(-45deg);
+	margin-top: -@top;
+	margin-left: -@left;
+	width:@width;
+	height:@height;
+
+}
+.arrow(right,@width:5px,@height:5px,@top:5px,@left:5px){
+	transform: rotate(135deg);
+	margin-top: -@top;
+	margin-left: -@left;
+	width:@width;
+	height:@height;
+}
+.arrow(@_,@width:5px,@height:5px,@top:5px,@left:5px){
+	border-left: 2px solid #fff;
+	border-top: 2px solid #fff;
+	position:absolute;
+	top:50%;
+	left:50%;
+}
+
+
+.arrowBox{
+	width:40px;
+	height:40px;
+	position: absolute;
+	top:50%;
+	margin-top: -20px;
+	font-size: 30px;
+	line-height: 35px;
+	text-align: center;
+	background:rgba(0,0,0,.3);
+	color:@white;
+	cursor: pointer;
+}
+
+#banner{
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	height:492px;
+	#leftArrow{
+		.arrowBox;		
+		left: 15px;
+		.arrow{
+			.arrow(left,10px,10px,6px,4px);
+		};
+	}
+	#rightArrow{
+		.arrowBox;
+		right: 15px;
+		.arrow{
+			.arrow(right,10px,10px,6px,9px);
+		};
+	}
+	.buttons{
+		position:absolute;
+		left:50%;
+		bottom:5%;
+		margin-left:-33px;
+		span{
+			width:10px;
+			height:10px;
+			display: block;
+			float:left;
+			// border-radius: 50%;
+			border:1px solid @mainColor;
+			outline: 1px solid @white;
+			margin-left:10px;
+			background:@mainColor;
+			cursor:pointer;
+		}
+		.on{
+			background:@white;
+		}
+	}
+}
+#list{
+	width:500%;
+	// z-index: 1;
+	&:after{
+		.clearfix;
+	}
+	position:absolute;
+	// left:0px;
+	// top:0px;
+}
+.list-item{
+	width:20%;
+	position:relative;
+	.fl;
+	img{
+		width:100%;
+	}
+	.img-message{
+		position:absolute;
+		left:20%;
+		top:50%;
+		margin-top:-96px;
+	}
+}
+
+/* banner文字信息区域 */
+.img-message{
+	font-family: fzlantingheis-ul-gbregular;
+	width:30%;
+	color:lighten(@mainColor, 5%);
+	font-variant: small-caps;
+	letter-spacing: 2px;
+	// display: none;
+	.message-top{
+		p{
+			font-size: 22px;
+			font-weight: 100;
+			margin-bottom:10px;
+		}
+		h1{
+			font-size: 35px;
+			font-weight: 100;
+			margin-bottom:10px;
+			font-family: inherit;
+			// span{
+			// 	color:@white;
+			// 	font-weight: 100;
+			// 	font-family: inherit;
+			// }
+		}
+	}
+	hr{
+		width: 250px;
+		font-weight: 100;
+	    height: 1px;
+	    border: none;
+	    margin:0;
+	    background-image: linear-gradient(to right,@white 80%,transparent);
+	    margin-bottom:10px;
+	    transition:all 1s;
+	}
+	.message-buttom{
+		font-size: 24px;
+		p{
+			font-size: 18px;
+			font-weight: 100;
+			margin-bottom:10px;
+			font-family: inherit;
+		}
+		.price{
+			margin-bottom:10px;
+			span{
+				font-family: inherit;
+				vertical-align: middle;
+			}
+			img{
+				width:35%;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+
+/* feature区域 */
+
+#feature{
+	ul{
+		&:after{
+			.clearfix;
+		}
+		margin-top:7px;
+		li{
+			.fl;
+			width:32.98%;
+			position:relative;
+			overflow:hidden;
+			// overflow: hidden;
+			// &:hover .img-gray{
+			// top:0%;
+			// }
+			&:hover img{
+				transform: translateY(-100%);
+			}
+			img{
+				width:100%;
+				filter: grayscale(0%);
+				transition: all 0.75s;
+				-ms-transition: all 0.75s;
+				position: relative;
+				// &:hover{
+				// 	filter: grayscale(100%);
+				// 	transform: scale(1.1);
+				// 	z-index: 1;
+				// }
+				// &:hover + .img-gray{
+				// 	top:0%; 
+				// }
+			}
+			.img-gray{
+				position:absolute;
+				// width:100%;
+				// transition:all 0.5s;
+				// top:100%;
+				// left:0%;
+			}
+			&:nth-child(2){
+				margin:0 0.5%;
+			}
+			&:nth-child(3){
+				.fr;
+			}
+		}
+	}
+}
+
+/* about区域 */
+
+#about{
+	padding:0 8%;
+}
+
+.moreArrow{
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-left-color: @mainColor;
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 82%;
+	margin-left:-5px;
+	margin-top:-5px;
+}
+.more{
+		position:relative;
+	    display: inline-block;
+		border:1px solid @lightColor;
+		border-radius: 15px;
+		width:57px;
+		height: 25px;
+		line-height:25px;
+		font-size: 16px;
+		color:@mainColor;
+		padding-left: 13px;
+		cursor:pointer;
+}
+
+/* 动态区域 */
+
+.dynamic{
+	margin:30px 0;
+	h1{
+		font-size: 24px;
+	    display: inline-block;
+	    font-weight: bold;
+	    margin-right: 15px;
+	    vertical-align:middle;
+	}
+	span{
+		vertical-align:middle;
+		.more;
+		&:after{
+			.moreArrow;
+		}
+		&:before{
+			.moreArrow;
+			border-left-color: @white;
+			margin-left:-6px;
+			z-index: 999;
+		}
+	}
+	ul{
+		margin:30px 0;
+		&:after{
+			.clearfix;
+		}
+	}
+	li{
+		.fl;
+		width:32%;
+		&:nth-of-type(2){
+			margin:0 2%;
+		}
+	}
+	figure{
+		margin:0;
+		.dynamic-first{
+			width:41.5%;
+			min-height:100px;
+			background-image: url(../images/dynamic-first.png);
+			background-size: 100%;
+			background-position: center center;
+		    background-repeat: no-repeat;
+		    // display: inline-block;和float的区别
+		    float: left;
+		    transition:all 0.25s;
+		    -ms-transition:all 0.25s;
+		    overflow: hidden;
+		    &:hover{
+		    	background-size: 120%;
+		    }
+		}
+		.dynamic-second{
+			.dynamic-first;
+			background-image: url(../images/dynamic-second.png);
+		    &:hover{
+		    	background-size: 120%;
+		    }
+		}
+		.dynamic-third{
+			.dynamic-first;
+			background-image: url(../images/dynamic-third.png);
+			&:hover{
+		    	background-size: 120%;
+		    }
+		}
+		figcaption{
+			display: inline-block;
+			// vertical-align: middle;
+			padding-left:15px;
+			p{
+				padding-top:10px;
+			}
+			p:nth-of-type(1){
+				font-size:16px;
+				color:@black;
+				font-weight: 600;
+			}
+			p:nth-of-type(2){
+				font-size:14px;
+				color:@mainColor;
+			}
+			p:nth-of-type(3){
+				font-size:12px;
+				color:@lightColor;
+				padding-top:25px;
+			}
+		}
+	}
+}
+
+/* test CSS伪类重叠箭头实现 */
+ 
+/* 
+// 这是纯css+伪类before和after重叠制作的箭头（定位比较方便）
+.testArrow(right,@borderWidth:10px,@borderColor:white){
+	border: @borderWidth solid transparent;
+	border-left-color: @borderColor;
+	margin-top:-@borderWidth;
+}
+.testArrow(left,@borderWidth:10px,@borderColor:white){
+	border: @borderWidth solid transparent;
+	border-right-color: @borderColor;
+	margin-top:-@borderWidth;
+}
+.testArrow(top,@borderWidth:10px,@borderColor:white){
+	border: @borderWidth solid transparent;
+	border-bottom-color: @borderColor;
+	margin-left:-@borderWidth;
+}
+.testArrow(bottom,@borderWidth:10px,@borderColor:white){
+	border: @borderWidth solid transparent;
+	border-top-color: @borderColor;
+	margin-left:-@borderWidth;
+}
+.testArrow(@_,@borderWidth:10px,@borderColor:white){
+	width: 0;
+	height: 0;
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 50%;
+}
+
+#bottom{
+	.test{
+	width: 50px;
+	height: 50px;
+	background: #ccc;
+	position:relative;
+		&:before{
+			.testArrow(left,10px);
+		}
+		&:after{
+			.testArrow(left,10px,#ccc);
+			// z-index: 999;
+			margin-left:4px;
+		}
+	}
+}  */
+
+
+/* 活动区域 */
+
+#activity{
+	margin:30px 0;
+	h1{
+		font-size: 24px;
+	    display: inline-block;
+	    font-weight: bold;
+	    margin-right: 15px;
+	    vertical-align:middle;
+	}
+	span{
+		vertical-align:middle;
+		.more;
+		&:after{
+			.moreArrow;
+		}
+		&:before{
+			.moreArrow;
+			border-left-color: @white;
+			margin-left:-6px;
+			z-index: 999;
+		}
+	}
+	ul{
+		margin:30px 0;
+		&:after{
+			.clearfix;
+		}
+	}
+	li{
+		.fl;
+		width:32%;
+		&:nth-of-type(2){
+			margin:0 2%;
+		}
+	}
+	figure{
+		margin:0;
+		a{
+			display: block;
+			img{
+				width:100%;
+			}
+		}
+		figcaption{
+			display: inline-block;
+			margin-top:5px;
+		}
+	}
+}
+
+
+/* bottom区域 */
+#bottom{
+	background:#fafafc;
+	padding:0 8%;
+}
+
+/* advantage区域 */
+.advantage{
+	ul{
+		padding:30px 0;
+		color:@mainColor;
+		&:after{
+			.clearfix;
+		}
+	}
+	li{
+		.fl;
+		width:16.5%;
+		border-right:1px solid @lineColor;
+		text-align:center;
+		&:nth-of-type(6){
+			border:none;
+		}
+		img{
+
+		}
+		p{
+			margin-top:10px;
+			span{
+				font-weight: bold;
+				b{
+					color:@phoneColor;
+					// font-size: 18px;
+				}
+			}
+		}
+	}
+}
+/* 底部导航区域footer-nav */
+
+.footer-nav{
+	ul{
+		padding:30px 0;
+		border-top:1px solid @lineColor;
+		border-bottom:1px solid @lineColor;
+		color:@mainColor;
+		&:after{
+			.clearfix;
+		}
+	}
+	li{
+		.fl;
+		width:18%;
+		padding-left:2%;
+		span{
+			font-size: 14px;
+			font-weight:bold;
+		}
+		p{
+			font-size: 14px;
+			padding-top:12px;
+		}
+		h2{
+			color:@phoneColor;
+			padding-bottom:12px;
+		}
+		&:nth-of-type(5){
+			text-align: center;
+			p{
+				padding-bottom:15px;
+				padding-top:15px;
+			}
+			h2{
+				padding-bottom:15px;
+			}
+		}
+		.service{
+			a{
+				color: #fff;
+				font-size: 12px;
+				width: 80%;
+				height: 30px;
+				line-height: 30px;
+				background: #37c3e6;
+				border-radius: 5px;
+				margin: 0 auto;
+				display: block;
+				text-align:center;
+			}
+		}
+	}
+}
+
+
+/* footer-message区域 */
+
+.footer-message{
+	font-size: 14px;
+	color:@mainColor;
+	&:after{
+		.clearfix;
+	}
+	p{
+		display: inline-block;
+		padding:45px 0;
+	}
+	.contact{
+		display: inline-block;
+		.fr;
+		padding:30px 0;
+		span{
+			vertical-align: middle;
+		}
+		a{
+			cursor:pointer;
+			img{
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
