@@ -80,7 +80,7 @@
 		            //判断图片是否已经循环一次
 		                oList.css('left',-oWidth * len);
 		                 // index = 3;
-		                 /*????去掉这个就可以了（bug还是存在），自己添加的index又删除，改变主页中的alt为index属性。未解决。。。*/
+		                 /*????去掉这个就可以了（bug还是存在），自己添加的index又删除，改变主页中的alt为index属性。未解决。。。（解决，问题不在这里）*/
 		            }
 		            if(newLeft < -oWidth * 3){
 		                oList.css('left',-oWidth);
@@ -88,8 +88,35 @@
 		            }
 
 		            //这里（回调函数）追加轮播图图片详情内容的动态效果。
+		            if (index==3) {
+					imgMessageShow("translateX(0px)","translateX(0px)");
+			        }
+		            if (index==2) {
+					imgMessageShow("translateY(0px)","translateY(0px)");
+			        }
 		        });
 		    }
+
+			function imgMessageShow(changeOne,changeTwo){
+	            var imgMessage = document.querySelectorAll(".img-message");
+	            currentImgMessage = imgMessage[index];
+	            // console.log(currentImgMessage);
+				currentImgMessage.querySelector("hr").style.width = 250+"px";
+				currentImgMessage.style.opacity = 1;
+				// currentImgMessage.style.marginTop = -85.5 + "px";
+				currentImgMessage.querySelector(".message-top").style.transform =changeOne;
+				//关于style.change显示错误，改成style[change]。change传入的是一个字符串(style.change等价于style."change")???,不是一个属相（或者说css样式属性），适用于style["change"]等价于style.marginLeft。中括号接受的是字符串。
+				currentImgMessage.querySelector(".message-bottom").style.transform =changeTwo;
+				// currentImgMessage.querySelector(".message-bottom").style.change = 0+"px";
+				// console.log(currentImgMessage.querySelector(".message-top").style.change);
+				// console.log(currentImgMessage.querySelector(".message-top").style[change]);
+			}
+
+
+
+
+
+
 		    function showBtns(){                
 		    //按钮过渡
 		        oSpan.each(function(){          
@@ -103,7 +130,7 @@
 		    //自动播放
 		        timer = setTimeout(function(){
 		            oRight.trigger('click');
-		            autoplay();
+		            // autoplay();
 		        },interval);
 		    }
 		    function stop(){
@@ -126,7 +153,7 @@
 		        stop();
 		    });
 		    oList.on('mouseout',function(){
-		        autoplay();
+		        // autoplay();
 		    });
 		    oRight.on('click',function(){
 		        if(oList.is(':animated')){
@@ -182,11 +209,17 @@
 		            //类型string 获取的是字符串“1”。。。
 		        })
 		    })
-		    autoplay();
+		    // autoplay();
+		});
+
+
+
+
+
 
 			//用户详情信息滑出滑入jq简单特效
-		    var user = $(".user").eq(0);
-		    var userMessage = $(".userMessage").eq(0);
+		    // var user = $(".user").eq(0);
+		    // var userMessage = $(".userMessage").eq(0);
 		    //[]是js的dom对象不是jquery的，所以不能调用jq定义的函数，出现is not a function问题。
 		    // console.log(user);
 
@@ -248,7 +281,6 @@
 			// user.removeClass('user').addClass('user-test')
 			// console.log(userTest);
 			// console.log(user);
-		});
 
 	    /*用js强制解决position：absolute导致的父类高度塌陷需要用到固定高度的问题*/
         /*	<script type="text/javascript">
@@ -261,6 +293,10 @@
 			</script>*/
 
 		// 添加一个script会导致宽度出错？？？去除一个script将其加入到轮播图的js中。
+
+
+
+
 
 
 		/* activity 动态创建图片详情展示 */
@@ -310,6 +346,10 @@
 
 			}
 		};
+
+
+
+
 
 
 		//数字滚动简单特效代码：
@@ -381,6 +421,9 @@
 		};
 
 
+
+
+
 		/*js中使用CSSStyleSheet的insertRule来为伪元素修改样式：(解决无法dom获取伪元素的问题（无法获取就直接修改覆盖样式），以及无法用纯css的hover来控制非子类和兄弟元素的问题)
 		与上面的jq同理（解决了一部分bug，若要用上面的jq来实现要根据js的用法再修改）*/
 	    var idHeader = document.getElementById("header"); 
@@ -400,7 +443,6 @@
 	    	// console.log(document.styleSheets[0]);
 	    };
 
-
 	    var idContainer = document.getElementById("container"); 
 	    var classUserMessage = idContainer.querySelector(".userMessage");
 	    // console.log(classUserMessage);
@@ -417,4 +459,14 @@
 	    	document.styleSheets[1].insertRule('.navbar .user a::after { transform: rotate(0deg) }', document.styleSheets[1].cssRules.length);
 	    	// console.log(document.styleSheets[0]);
 	    };
+
+	    // 定义页面加载时触发第一张轮播图的信息移动特效
+	    var opacityOn = document.querySelector(".img-message-one");
+	    console.log(opacityOn);
+	    opacityOn.style.opacity = 1;
+	    opacityOn.querySelector("hr").style.width = 250+"px";
+	    opacityOn.querySelector(".message-top").style.transform = "translateX(0px)";
+	    opacityOn.querySelector(".message-bottom").style.transform = "translateX(0px)";
+
+
 

@@ -353,7 +353,51 @@ i {
   position: absolute;
   left: 20%;
   top: 50%;
-  margin-top: -96px;
+  margin-top: -85.5px;
+  transition: all 0.5s;
+  opacity: 1;
+}
+.list-item .img-message-zero hr {
+  width: 250px;
+}
+.list-item .img-message-one {
+  opacity: 0;
+}
+.list-item .img-message-one .message-top {
+  transform: translateX(145px);
+}
+.list-item .img-message-one hr {
+  width: 0px;
+}
+.list-item .img-message-one .message-bottom {
+  transform: translateX(-145px);
+}
+.list-item .img-message-two {
+  opacity: 0;
+}
+.list-item .img-message-two .message-top {
+  transform: translateY(-75px);
+}
+.list-item .img-message-two hr {
+  width: 0px;
+}
+.list-item .img-message-two .message-bottom {
+  transform: translateY(75px);
+}
+.list-item .img-message-three {
+  opacity: 0;
+}
+.list-item .img-message-three .message-top {
+  transform: translateY(45px);
+}
+.list-item .img-message-three hr {
+  width: 0px;
+}
+.list-item .img-message-three .message-bottom {
+  transform: translateY(-45px);
+}
+.list-item .img-message-four hr {
+  width: 250px;
 }
 /* banner文字信息区域 */
 .img-message {
@@ -362,6 +406,10 @@ i {
   color: #737373;
   font-variant: small-caps;
   letter-spacing: 2px;
+}
+.img-message .message-top {
+  transition: all 1s;
+  margin-left: 0px;
 }
 .img-message .message-top p {
   font-size: 22px;
@@ -383,25 +431,28 @@ i {
   background-image: linear-gradient(to right, #fff 80%, transparent);
   margin-bottom: 10px;
   transition: all 1s;
+  transform: rotateZ(180deg);
 }
-.img-message .message-buttom {
+.img-message .message-bottom {
+  transition: all 1s;
+  margin-left: 0px;
   font-size: 24px;
 }
-.img-message .message-buttom p {
+.img-message .message-bottom p {
   font-size: 18px;
   font-weight: 100;
   margin-bottom: 10px;
   font-family: inherit;
 }
-.img-message .message-buttom .price {
+.img-message .message-bottom .price {
   margin-bottom: 10px;
 }
-.img-message .message-buttom .price span {
+.img-message .message-bottom .price span {
   font-family: inherit;
   vertical-align: middle;
 }
-.img-message .message-buttom .price img {
-  width: 35%;
+.img-message .message-bottom .price img {
+  width: 125px;
   vertical-align: middle;
 }
 /* feature区域 */

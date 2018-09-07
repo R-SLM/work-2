@@ -423,8 +423,60 @@ em, i { font-style: normal; }
 		position:absolute;
 		left:20%;
 		top:50%;
-		margin-top:-96px;
+		margin-top:-85.5px;
+		transition: all 0.5s;
+		opacity: 1;
 	}
+	.img-message-zero{
+		hr{
+		width:250px;
+		}
+	}
+	.img-message-one{
+		opacity:0;
+		.message-top{
+			transform: translateX(145px);
+		}
+		hr{
+			width:0px;
+		}
+		.message-bottom{
+			transform: translateX(-145px);
+		}
+	}
+	.img-message-two{
+		opacity:0;
+		// margin-top:-125.5px;
+		.message-top{
+			transform: translateY(-75px);
+		}
+		hr{
+			width:0px;
+		}
+
+		.message-bottom{
+			transform: translateY(75px);
+		}
+	}
+	.img-message-three{
+		opacity:0;
+		.message-top{
+			transform: translateY(45px);
+		}
+		hr{
+			width:0px;
+		}
+
+		.message-bottom{
+			transform: translateY(-45px);
+		}
+	}
+	.img-message-four{
+		hr{
+		width:250px;
+		}
+	}
+	// 第一张轮播图的透明度覆盖。
 }
 
 /* banner文字信息区域 */
@@ -434,8 +486,9 @@ em, i { font-style: normal; }
 	color:lighten(@mainColor, 5%);
 	font-variant: small-caps;
 	letter-spacing: 2px;
-	// display: none;
 	.message-top{
+		transition:all 1s;
+		margin-left:0px;
 		p{
 			font-size: 22px;
 			font-weight: 100;
@@ -446,11 +499,6 @@ em, i { font-style: normal; }
 			font-weight: 100;
 			margin-bottom:10px;
 			font-family: inherit;
-			// span{
-			// 	color:@white;
-			// 	font-weight: 100;
-			// 	font-family: inherit;
-			// }
 		}
 	}
 	hr{
@@ -462,8 +510,11 @@ em, i { font-style: normal; }
 	    background-image: linear-gradient(to right,@white 80%,transparent);
 	    margin-bottom:10px;
 	    transition:all 1s;
+	    transform: rotateZ(180deg);
 	}
-	.message-buttom{
+	.message-bottom{
+		transition:all 1s;
+		margin-left:0px;
 		font-size: 24px;
 		p{
 			font-size: 18px;
@@ -478,7 +529,7 @@ em, i { font-style: normal; }
 				vertical-align: middle;
 			}
 			img{
-				width:35%;
+				width:125px;
 				vertical-align: middle;
 			}
 		}
