@@ -45,7 +45,7 @@
 				// console.log(oWidth);
 				oList.css('left',-oWidth*index); 
 				// console.log(imgHeight);
-				// autoplay();
+				autoplay();
 
 				clientHeigth = document.documentElement.clientHeight;
 				clientWidth = document.documentElement.clientWidth;
@@ -130,7 +130,7 @@
 		    //自动播放
 		        timer = setTimeout(function(){
 		            oRight.trigger('click');
-		            // autoplay();
+		            autoplay();
 		        },interval);
 		    }
 		    function stop(){
@@ -153,7 +153,7 @@
 		        stop();
 		    });
 		    oList.on('mouseout',function(){
-		        // autoplay();
+		        autoplay();
 		    });
 		    oRight.on('click',function(){
 		        if(oList.is(':animated')){
@@ -209,7 +209,7 @@
 		            //类型string 获取的是字符串“1”。。。
 		        })
 		    })
-		    // autoplay();
+		    autoplay();
 		});
 
 
