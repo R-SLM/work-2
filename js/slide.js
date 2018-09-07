@@ -25,14 +25,13 @@
 		}))();*/
 
 		// 轮播图代码
+
+
+		//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。)
+		var imgHeight = $("#list img:eq(0)").height();
+		$("#banner").css("height",imgHeight);
+		//	.css("element",val),这里的val不需要用“”。
 		$(function(){
-
-
-			//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。)
-			var imgHeight = $("#list img:eq(0)").height();
-			// console.log(imgHeight);
-			$("#banner").css("height",imgHeight);
-			//	.css("element",val),这里的val不需要用“”。
 
 			// banner自适应定宽(jq resize函数)有bug。。。
 			$(window).resize(function() {
@@ -462,7 +461,7 @@
 
 	    // 定义页面加载时触发第一张轮播图的信息移动特效
 	    var opacityOn = document.querySelector(".img-message-one");
-	    console.log(opacityOn);
+	    // console.log(opacityOn);
 	    opacityOn.style.opacity = 1;
 	    opacityOn.querySelector("hr").style.width = 250+"px";
 	    opacityOn.querySelector(".message-top").style.transform = "translateX(0px)";
