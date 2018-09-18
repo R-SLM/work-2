@@ -33,7 +33,7 @@ body {
 /* 字体用于解决用户电脑没有该字体 */
 @font-face {
   font-family: 'fzlantingheis-ul-gbregular';
-  src: url('../fonts/fzlantingheis/_-webfont.woff2') format('woff2'), url('../fonts/fzlantingheis/__-webfont.woff') format('woff');
+  src: url('../fonts/fzlantingheis/_-webfont.woff2') format('woff2'), url('../fonts/fzlantingheis/_-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -401,7 +401,7 @@ i {
 }
 /* banner文字信息区域 */
 .img-message {
-  font-family: fzlantingheis-ul-gbregular;
+  font-family: "fzlantingheis-ul-gbregular";
   width: 30%;
   color: #737373;
   font-variant: small-caps;
