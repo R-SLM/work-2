@@ -26,12 +26,16 @@
 
 		// 轮播图代码
 
-/*		//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。关于图片还没加载时宽度老是为零时的bug。。。)
-		var imgHeight = $("#list img:eq(0)").height();
-		$("#banner").css("height",imgHeight);
-		//	.css("element",val),这里的val不需要用“”。*/
-
 		$(function(){
+
+
+			//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。关于图片还没加载时宽度老是为零时的bug。。。)
+			var imgHeight = $("#list img:eq(0)").height();
+			if(imgHeight>0)
+			{
+				$("#banner").css("height",imgHeight);
+			}
+			//	.css("element",val),这里的val不需要用“”。
 
 			// banner自适应定宽(jq resize函数)有bug。。。
 			$(window).resize(function() {
