@@ -64,7 +64,6 @@ i {
   right: 0;
   bottom: 0;
   transition: all 0.5s;
-  -ms-transition: all 0.5s;
   z-index: 8;
 }
 #wrap {
@@ -73,7 +72,6 @@ i {
   position: fixed;
   z-index: 9;
   transition: all 0.5s;
-  -ms-transition: all 0.5s;
   padding: 0 10px;
   opacity: 0.5;
 }
@@ -143,7 +141,6 @@ i {
   content: "";
   transform: rotate(0deg);
   transition: all 0.35s;
-  -ms-transition: all 0.35s;
 }
 .navbar .user a img {
   vertical-align: middle;
@@ -156,7 +153,6 @@ i {
 }
 .navbar ul li a {
   transition: all 0.15s;
-  -ms-transition: all 0.15s;
   font-size: 14px;
 }
 .navbar ul li a:hover {
@@ -173,7 +169,6 @@ i {
   margin-top: -300px;
   z-index: 2;
   transition: margin-top 0.5s;
-  -ms-transition: margin-top 0.5s;
   padding: 25px;
 }
 .user-top {
@@ -477,7 +472,6 @@ i {
   width: 100%;
   filter: grayscale(0%);
   transition: all 0.75s;
-  -ms-transition: all 0.75s;
   position: relative;
 }
 #feature ul li .img-gray {
@@ -597,7 +591,6 @@ i {
   background-repeat: no-repeat;
   float: left;
   transition: all 0.25s;
-  -ms-transition: all 0.25s;
   overflow: hidden;
 }
 .dynamic figure .dynamic-first:hover {
@@ -612,7 +605,6 @@ i {
   background-repeat: no-repeat;
   float: left;
   transition: all 0.25s;
-  -ms-transition: all 0.25s;
   overflow: hidden;
   background-image: url(../images/dynamic-second.png);
 }
@@ -631,7 +623,6 @@ i {
   background-repeat: no-repeat;
   float: left;
   transition: all 0.25s;
-  -ms-transition: all 0.25s;
   overflow: hidden;
   background-image: url(../images/dynamic-third.png);
 }

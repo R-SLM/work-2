@@ -26,13 +26,12 @@
 
 		// 轮播图代码
 
-
-		$(function(){
-			
-		//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。)
+/*		//jq定高(关于各种height相关的尺寸要加括号，类似方法写法。。。关于图片还没加载时宽度老是为零时的bug。。。)
 		var imgHeight = $("#list img:eq(0)").height();
 		$("#banner").css("height",imgHeight);
-		//	.css("element",val),这里的val不需要用“”。
+		//	.css("element",val),这里的val不需要用“”。*/
+
+		$(function(){
 
 			// banner自适应定宽(jq resize函数)有bug。。。
 			$(window).resize(function() {
@@ -41,11 +40,19 @@
 				// console.log(imgHeight);
 				$("#banner").css("height",imgHeight);
 				
+				if (oList.is(':animated')) {
+					window.location.reload();
+					//当页面轮播图正在切换时页面重新加载。。。（其他解决方案未完成。。。）
+					oList.css('left',-oWidth*index); 
+				}
+				else{
 				oWidth = parseInt(oList.css('width')) / 5;
 				// console.log(oWidth);
 				oList.css('left',-oWidth*index); 
 				// console.log(imgHeight);
+				}
 				autoplay();
+				
 				if(document.getElementById("wrap")){
 					clientHeigth = document.documentElement.clientHeight;
 					clientWidth = document.documentElement.clientWidth;
